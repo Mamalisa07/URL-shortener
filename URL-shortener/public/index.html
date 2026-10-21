@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZipLink | Modern URL Shortener</title>
+    <meta name="description" content="Shorten your long URLs instantly with ZipLink. Clean, fast, and secure.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-gradient-glow"></div>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i data-lucide="link-2" class="logo-icon"></i>
+                <span class="logo-text">ZipLink</span>
+            </div>
+            <p class="tagline">Streamline your links with modern, clean, and fast redirection.</p>
+        </header>
+
+        <main>
+            <div class="glass-card">
+                <form id="shortener-form">
+                    <div class="input-group">
+                        <label for="url-input" class="sr-only">Enter long URL</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="link" class="input-icon"></i>
+                            <input 
+                                type="url" 
+                                id="url-input" 
+                                placeholder="Paste your long URL here (e.g. https://example.com/very-long-path)" 
+                                required
+                                autocomplete="off"
+                            >
+                        </div>
+                        <button type="submit" id="submit-btn">
+                            <span>Shorten</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Result Card (hidden by default) -->
+                <div id="result-container" class="result-container hidden">
+                    <div class="divider"></div>
+                    <div class="result-content">
+                        <h3>Your Shortened Link</h3>
+                        <div class="result-wrapper">
+                            <input type="text" id="short-url-output" readonly>
+                            <button id="copy-btn" title="Copy to clipboard">
+                                <i data-lucide="copy" id="copy-icon"></i>
+                                <span id="copy-text">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Card (hidden by default) -->
+                <div id="error-container" class="error-container hidden">
+                    <i data-lucide="alert-circle" class="error-icon"></i>
+                    <span id="error-message">Something went wrong. Please try again.</span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 ZipLink. Designed for seamless connectivity.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
